@@ -15,30 +15,7 @@ A full-stack CRUD application built with **Node.js**, **Express**, and **MySQL**
 - Simple frontend (`public/index.html`) to interact with the API
 - Easy to set up and extend
 
----
 
-api-server/
-├── config/
-│   └── db.js
-├── controllers/
-│   └── productController.js
-├── models/
-│   └── product.model.js
-├── routes/
-│   └── product.routes.js
-├── public/
-│   └── index.html
-├── sql/
-│   ├── create_db.sql
-│   ├── create_table.sql
-│   └── seed_data.sql
-├── .gitignore
-├── package.json
-├── server.js
-└── README.md
-
-
----
 
 ## 🛠️ Getting Started
 
