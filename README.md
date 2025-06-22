@@ -3,8 +3,7 @@
 A full-stack CRUD application built with **Node.js**, **Express**, and **MySQL** for managing products. Includes a simple HTML frontend for easy interaction and testing, and full automated testing with Jest and Supertest.
 
 ---
-
-![Test Coverage Screenshot](coverage/coverage-summary.png)
+![alt text](generated-image.png)
 
 ---
 
