@@ -1,11 +1,12 @@
 # Product Manager API – Keploy API Fellowship Project
 
-A full-stack CRUD application built with **Node.js**, **Express**, and **MySQL** for managing products. Includes a simple HTML frontend for easy interaction and testing.
+A full-stack CRUD application built with **Node.js**, **Express**, and **MySQL** for managing products. Includes a simple HTML frontend for easy interaction and testing, and full automated testing with Jest and Supertest.
 
 ---
 
-![generated-image](https://github.com/user-attachments/assets/fb214722-a2d7-4a2a-bcae-1154bcff72ed)
+![Test Coverage Screenshot](coverage/coverage-summary.png)
 
+---
 
 ## 🚀 Features
 
@@ -13,21 +14,40 @@ A full-stack CRUD application built with **Node.js**, **Express**, and **MySQL**
 - MySQL database integration
 - MVC folder structure for clean code organization
 - Simple frontend (`public/index.html`) to interact with the API
-- Easy to set up and extend
+- **Automated tests:** Unit, integration, and API tests
+- Code coverage reporting
 
+---
 
+## 🛠️ Tech Stack
 
-## 🛠️ Getting Started
+- **Backend:** Node.js, Express.js
+- **Database:** MySQL (mysql2)
+- **Testing:** Jest (test runner & coverage), Supertest (API endpoint testing)
+- **Other:** dotenv (environment variables), body-parser, cors
 
-### Prerequisites
+---
 
-- Node.js (v12+)
-- MySQL Server
+## 🧩 API Integrated
+
+This project exposes and tests a custom REST API for product management, including:
+
+| Method | Endpoint                   | Description                |
+|--------|----------------------------|----------------------------|
+| GET    | /api/products              | Get all products           |
+| GET    | /api/products/:id          | Get a product by ID        |
+| POST   | /api/products              | Create a new product       |
+| PUT    | /api/products/:id          | Update a product by ID     |
+| DELETE | /api/products/:id          | Delete a product by ID     |
+
+---
+
+## 🚦 Getting Started
 
 ### 1. Clone the Repository
 
-git clone <your-repo-url>
-cd api-server
+git clone https://github.com/stealthinator45/product-manager-api.git
+cd product-manager-api
 
 text
 
@@ -41,7 +61,6 @@ text
 
 - Start MySQL and run the scripts in the `sql/` folder:
 
--- In MySQL shell:
 SOURCE sql/create_db.sql;
 USE keploy_api_db;
 SOURCE sql/create_table.sql;
@@ -51,20 +70,19 @@ text
 
 ### 4. Configure Database Connection
 
-- Edit `config/db.js` with your MySQL credentials:
+- Copy `.env.example` to `.env` and fill in your MySQL credentials.
 
-const connection = mysql.createConnection({
-host: "localhost",
-user: "your_mysql_user",
-password: "your_mysql_password",
-database: "keploy_api_db"
-});
+Example:
+DB_HOST=localhost
+DB_USER=your_mysql_user
+DB_PASSWORD=your_mysql_password
+DB_NAME=keploy_api_db
 
 text
 
 ### 5. Start the Server
 
-node server.js
+npm start
 
 text
 
@@ -74,19 +92,35 @@ text
 
 ---
 
-## 🌐 API Endpoints
+## 🧪 How to Run Tests
 
-| Method | Endpoint                   | Description                |
-|--------|----------------------------|----------------------------|
-| GET    | /api/products              | Get all products           |
-| GET    | /api/products/:id          | Get a product by ID        |
-| POST   | /api/products              | Create a new product       |
-| PUT    | /api/products/:id          | Update a product by ID     |
-| DELETE | /api/products/:id          | Delete a product by ID     |
+- **All tests (with coverage):**
+npm test
+
+text
+- **Unit tests only:**
+npm run test:unit
+
+text
+- **Integration tests only:**
+npm run test:integration
+
+text
+- **API tests only:**
+npm run test:api
+
+text
 
 ---
 
-## 🖥️ Using the Frontend
+## 🧰 Testing Frameworks/Tools Used
+
+- **Jest** – test runner, assertions, and coverage
+- **Supertest** – HTTP assertions for API endpoints
+
+---
+
+## 🌐 Using the Frontend
 
 - Open [http://localhost:3000/public/index.html](http://localhost:3000/public/index.html) in your browser.
 - Use the form to add, edit, or delete products.
@@ -94,16 +128,35 @@ text
 
 ---
 
-## 📸 Screenshots
+## 📊 Test Coverage
 
-![alt text](image.png)
+> **Screenshot:**  
+> ![alt text](image-4.png)
+>
+> _After running `npm test`, open `coverage/lcov-report/index.html` to see the full coverage report. Add a screenshot of the summary table here._
 
-![alt text](image-1.png)
+---
 
-![alt text](image-2.png)
+## 📂 Project Structure
 
-![alt text](image-3.png)
+product-manager-api/
+│
+├── controllers/
+├── models/
+├── routes/
+├── tests/
+│ ├── unit/
+│ ├── integration/
+│ └── api/
+├── config/
+├── public/
+├── sql/
+├── .env.example
+├── package.json
+├── README.md
+└── ...
 
+text
 
 ---
 
@@ -122,5 +175,8 @@ This project is for educational/demo purposes as part of the Keploy API Fellowsh
 
 ## 💡 Notes
 
+- Use **Node.js v18.x** for best compatibility (Node.js v20+ is not supported by `mysql2`).
+- Ensure your MySQL server is running and accessible.
+- For test DB, you can manually create and seed it, or let the tests use your existing data.
 - For production, use environment variables for sensitive data and add more robust error handling and validation.
 - Contributions welcome!
