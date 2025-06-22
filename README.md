@@ -4,6 +4,9 @@ A full-stack CRUD application built with **Node.js**, **Express**, and **MySQL**
 
 ---
 
+![generated-image](https://github.com/user-attachments/assets/fb214722-a2d7-4a2a-bcae-1154bcff72ed)
+
+
 ## 🚀 Features
 
 - RESTful API with Create, Read, Update, Delete (CRUD) endpoints for products
@@ -12,33 +15,7 @@ A full-stack CRUD application built with **Node.js**, **Express**, and **MySQL**
 - Simple frontend (`public/index.html`) to interact with the API
 - Easy to set up and extend
 
----
 
-## 🗂️ Project Structure
-
-api-server/
-├── config/
-│ └── db.js
-├── controllers/
-│ └── productController.js
-├── models/
-│ └── product.model.js
-├── routes/
-│ └── product.routes.js
-├── public/
-│ └── index.html
-├── sql/
-│ ├── create_db.sql
-│ ├── create_table.sql
-│ └── seed_data.sql
-├── .gitignore
-├── package.json
-├── server.js
-└── README.md
-
-text
-
----
 
 ## 🛠️ Getting Started
 
