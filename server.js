@@ -1,26 +1,62 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+// Load environment variables from .env file
+require('dotenv').config();
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Serve static files from the public directory
 app.use('/public', express.static('public'));
 
-// parse requests of content-type: application/json
+// Parse JSON bodies
 app.use(bodyParser.json());
 
-// parse requests of content-type: application/x-www-form-urlencoded
+// Parse URL-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Keploy API Server application." });
+// Health check route
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to the Product Manager API Server.' });
 });
 
-// include product routes
-require("./routes/product.routes.js")(app);
+// Include product routes
+require('./routes/product.routes.js')(app);
 
-// set port, listen for requests
-app.listen(3000, () => {
-  console.log("Server is running on port 3000.");
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).json({ error: err.message });
 });
+
+// Only start server if this file is run directly (not during testing)
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  const server = app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}.`);
+  });
+
+  // Graceful shutdown handlers only when running as main module
+  process.on('SIGTERM', () => {
+    console.info('SIGTERM signal received. Shutting down gracefully.');
+    server.close(() => {
+      console.log('HTTP server closed.');
+      process.exit(0);
+    });
+  });
+
+  process.on('SIGINT', () => {
+    console.info('SIGINT signal received. Shutting down gracefully.');
+    server.close(() => {
+      console.log('HTTP server closed.');
+      process.exit(0);
+    });
+  });
+}
+
+// Export the Express app for testing
+module.exports = app;

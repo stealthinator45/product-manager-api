@@ -1,17 +1,39 @@
 {
   "name": "api-server",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
+  "main": "server.js",
+  "description": "A Node.js, Express, and MySQL product management API with full test coverage",
+  "author": "Piyush Kumar Tiwari",
   "license": "ISC",
-  "description": "",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest --coverage --forceExit",
+    "test:watch": "jest --watch",
+    "test:unit": "jest tests/unit --coverage --forceExit",
+    "test:integration": "jest tests/integration --coverage --forceExit",
+    "test:api": "jest tests/api --coverage --forceExit"
+  },
   "dependencies": {
     "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "mysql2": "^3.14.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.2",
+    "supertest": "^7.1.1",
+    "ts-jest": "^29.4.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "./coverage",
+    "collectCoverageFrom": [
+      "controllers/**/*.js",
+      "models/**/*.js",
+      "routes/**/*.js"
+    ],
+    "forceExit": true
   }
 }
