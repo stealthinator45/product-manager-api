@@ -48,13 +48,13 @@ This project exposes and tests a custom REST API for product management, includi
 git clone https://github.com/stealthinator45/product-manager-api.git
 cd product-manager-api
 
-text
+
 
 ### 2. Install Dependencies
 
 npm install
 
-text
+
 
 ### 3. Set Up the Database
 
@@ -65,7 +65,7 @@ USE keploy_api_db;
 SOURCE sql/create_table.sql;
 SOURCE sql/seed_data.sql;
 
-text
+
 
 ### 4. Configure Database Connection
 
@@ -77,13 +77,13 @@ DB_USER=your_mysql_user
 DB_PASSWORD=your_mysql_password
 DB_NAME=keploy_api_db
 
-text
+
 
 ### 5. Start the Server
 
 npm start
 
-text
+
 
 - You should see:  
   `Server is running on port 3000.`  
@@ -96,19 +96,18 @@ text
 - **All tests (with coverage):**
 npm test
 
-text
+
 - **Unit tests only:**
 npm run test:unit
 
-text
+
 - **Integration tests only:**
 npm run test:integration
 
-text
+
 - **API tests only:**
 npm run test:api
 
-text
 
 ---
 
@@ -138,24 +137,7 @@ text
 
 ## 📂 Project Structure
 
-product-manager-api/
-│
-├── controllers/
-├── models/
-├── routes/
-├── tests/
-│ ├── unit/
-│ ├── integration/
-│ └── api/
-├── config/
-├── public/
-├── sql/
-├── .env.example
-├── package.json
-├── README.md
-└── ...
-
-text
+![alt text](generated-image-1.png)
 
 ---
 
