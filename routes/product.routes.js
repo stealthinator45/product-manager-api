@@ -16,3 +16,44 @@ module.exports = app => {
   // Delete a Product with productId
   app.delete("/api/products/:productId", products.remove);
 };
+
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Product:
+ *       type: object
+ *       required:
+ *         - name
+ *         - price
+ *       properties:
+ *         id:
+ *           type: string
+ *           description: Auto-generated ID
+ *         name:
+ *           type: string
+ *         description:
+ *           type: string
+ *         price:
+ *           type: number
+ *         category:
+ *           type: string
+ */
+
+/**
+ * @swagger
+ * /api/products:
+ *   post:
+ *     summary: Create a new product
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Product'
+ *     responses:
+ *       200:
+ *         description: Product created
+ */
+// Repeat for other endpoints (GET, PUT, DELETE)

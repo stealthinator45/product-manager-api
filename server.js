@@ -27,6 +27,10 @@ app.get('/', (req, res) => {
 // Include product routes
 require('./routes/product.routes.js')(app);
 
+// Add Swagger setup
+const setupSwagger = require('./swagger');
+setupSwagger(app);
+
 // Global error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);

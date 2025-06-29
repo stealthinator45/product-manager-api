@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    container_name: product-api
+    networks:
+      - keploy-network
+    ports:
+      - "3000:3000"
+    command: npm start
+
+  keploy:
+    image: ghcr.io/keploy/keploy:latest
+    container_name: keploy-v2
+    privileged: true
+    pid: "host"
+    networks:
+      - keploy-network
+    environment:
+      - KEPLOY_APP_HOST=app
+      - KEPLOY_APP_PORT=3000
+    command: record -c "npm start"
+    depends_on:
+      - app
+
+networks:
+  keploy-network:
+    driver: bridge
