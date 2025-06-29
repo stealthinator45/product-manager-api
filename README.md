@@ -15,6 +15,12 @@ A full-stack CRUD application built with **Node.js**, **Express**, and **MySQL**
 - Simple frontend (`public/index.html`) to interact with the API
 - **Automated tests:** Unit, integration, and API tests
 - Code coverage reporting
+- AI-powered test generation with zero manual coding
+- Record-replay functionality for real-world scenarios
+- eBPF instrumentation for language-agnostic testing
+- Combined test coverage from traditional and AI tests
+- Chrome extension for web API testing
+- Cross-platform development (Windows + WSL2)
 
 ---
 
@@ -24,6 +30,33 @@ A full-stack CRUD application built with **Node.js**, **Express**, and **MySQL**
 - **Database:** MySQL (mysql2)
 - **Testing:** Jest (test runner & coverage), Supertest (API endpoint testing)
 - **Other:** dotenv (environment variables), body-parser, cors
+---
+
+🤖 Keploy AI-Powered API Testing
+- Comprehensive explanation of what Keploy is and its capabilities
+- Setup requirements for Windows/WSL2 users
+- Step-by-step recording and testing instructions
+- Configuration management via keploy.yml
+
+🔄 CI/CD Pipeline Integration
+- GitHub Actions workflow for automated Keploy testing
+- Pipeline configuration examples
+- Multi-environment support
+
+📊 Enhanced Test Coverage
+- Combined coverage from Jest + Keploy tests
+- Coverage reporting and metrics
+- Multiple testing framework integration
+
+🌐 API Documentation
+- OpenAPI/Swagger integration details
+- Automatic schema export functionality
+- Documentation-driven testing approach
+
+🐳 Docker & Environment Setup
+- WSL2 Docker configuration for Windows users
+- Cross-platform compatibility notes
+- Container-based deployment options
 
 ---
 
@@ -115,6 +148,11 @@ npm run test:api
 
 - **Jest** – test runner, assertions, and coverage
 - **Supertest** – HTTP assertions for API endpoints
+- Troubleshooting section for common WSL2/Docker/MySQL issues
+- Environment requirements with specific version constraints
+- Learning resources linking to official Keploy documentation
+- Project structure showing Keploy test directories
+- Configuration examples for database connectivity
 
 ---
 
@@ -134,6 +172,8 @@ npm run test:api
 > _After running `npm test`, open `coverage/lcov-report/index.html` to see the full coverage report. Add a screenshot of the summary table here._
 
 ---
+<img width="721" alt="keploy-test-report" src="https://github.com/user-attachments/assets/86ecb1c2-6be3-4eec-a0d8-ae8545df871c" />
+
 
 ## 📂 Project Structure
 
